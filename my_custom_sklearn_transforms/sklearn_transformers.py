@@ -24,8 +24,8 @@ class CustomImputer():
         return self
     
     def transform(self, X):
-        import pandas as pd
         from sklearn.impute import SimpleImputer
+        import pandas as pd
         si = SimpleImputer(
            missing_values=np.nan,  # los valores que faltan son del tipo ``np.nan`` (Pandas estándar)
            strategy='median',  # la estrategia elegida es cambiar el valor faltante por la mediana
