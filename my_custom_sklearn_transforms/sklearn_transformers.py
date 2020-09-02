@@ -16,8 +16,6 @@ class DropColumns(BaseEstimator, TransformerMixin):
         return data.drop(labels=self.columns, axis='columns')
     
 class CustomImputer():
-    import pandas as pd
-    from sklearn.impute import SimpleImputer
     def __init__(self, icols, tcol):
         self.icols = icols
         self.tcol = tcol
@@ -26,6 +24,8 @@ class CustomImputer():
         return self
     
     def transform(self, X):
+        import pandas as pd
+        from sklearn.impute import SimpleImputer
         si = SimpleImputer(
            missing_values=np.nan,  # los valores que faltan son del tipo ``np.nan`` (Pandas estándar)
            strategy='median',  # la estrategia elegida es cambiar el valor faltante por la mediana
