@@ -37,4 +37,4 @@ class CustomImputer():
         si.fit(ds)
         return pd.concat([pd.DataFrame.from_records(
                data=si.transform(ds),  # el resultado SimpleImputer.transform (<< pandas dataframe >>)
-               columns=self.icols), df2[self.tcol]], axis=1 )
+               columns=self.icols), X[self.tcol]], axis=1 )
